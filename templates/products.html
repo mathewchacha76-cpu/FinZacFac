@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Products | Zafac Autospares{% endblock %}
+{% block content %}
+  <section class="panel">
+    <div class="section-title">
+      <h1>View Products</h1>
+      <a class="btn btn-accent" href="{{ url_for('contact') }}">Need help choosing?</a>
+    </div>
+    <div class="grid cards-3">
+      {% for product in products %}
+        <div class="card">
+          <img src="{{ product.image_url }}" alt="{{ product.name }}">
+          <h3>{{ product.name }}</h3>
+          <p><strong>Category:</strong> {{ product.category }}</p>
+          <p>{{ product.description }}</p>
+          <p class="price">{{ product.price }}</p>
+        </div>
+      {% else %}
+        <p>No products are available yet. Please check back soon.</p>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}

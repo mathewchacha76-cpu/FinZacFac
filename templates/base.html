@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Zafac Autospares offers motorcycle spare parts, repair services, and expert local support in Isebania, Kenya.">
+    <meta name="keywords" content="motorcycle spare parts, motorcycle repair, Isebania, Kenya, Zafac Autospares">
+    <title>{% block title %}Zafac Autospares{% endblock %}</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <header class="topbar">
+      <nav class="nav">
+        <a class="brand" href="{{ url_for('home') }}">Zafac Autospares</a>
+        <div class="nav-links">
+          <a href="{{ url_for('products') }}">View Products</a>
+          <a href="{{ url_for('services') }}">Repair Services</a>
+          <a href="{{ url_for('about') }}">About</a>
+          <a href="{{ url_for('gallery') }}">Gallery</a>
+          <a href="{{ url_for('tips') }}">Motorcycle Tips</a>
+          <a href="{{ url_for('faq') }}">FAQs</a>
+          <a href="{{ url_for('contact') }}">Contact</a>
+          <a href="{{ url_for('admin_login') }}">Admin</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="page">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="flash">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+      <div class="grid cards-3">
+        <div>
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="{{ url_for('products') }}">View Products</a></li>
+            <li><a href="{{ url_for('services') }}">Repair Services</a></li>
+            <li><a href="{{ url_for('contact') }}">Reach Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Business Hours</h3>
+          <p>Monday – Saturday: 7:00 AM – 6:00 PM</p>
+          <p>Sunday: 8:00 AM – 6:00 PM</p>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <p>Phone / WhatsApp: +254 713 078359</p>
+          <p>Email: zafacautospares@gmail.com</p>
+          <p>Location: Isebania Border, Kenya</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

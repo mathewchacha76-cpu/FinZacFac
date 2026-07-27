@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Admin Login | Zafac Autospares{% endblock %}
+{% block content %}
+  <section class="form-card" style="max-width: 480px; margin: 0 auto;">
+    <h1>Admin Login</h1>
+    <p>Use the admin credentials below to manage products.</p>
+    <form method="post">
+      <label>Username</label>
+      <input name="username" required>
+      <label>Password</label>
+      <input name="password" type="password" required>
+      <button class="btn btn-accent" style="margin-top: 12px;" type="submit">Sign in</button>
+    </form>
+    <!--<p style="margin-top: 14px;"><strong>Default login:</strong> admin / </p>
+  </section>-->
+{% endblock %}

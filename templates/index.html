@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}Zafac Autospares | Motorcycle Parts & Repair{% endblock %}
+{% block content %}
+  <section class="hero">
+    <div class="hero-card">
+      <p style="color: #b91c1c; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em;">Quality motorcycle spare parts & repair services.</p>
+      <h1>Reliable parts and fast repair support for every ride.</h1>
+      <p>From brake components to engine essentials, Zafac Autospares serves riders in Isebania with practical, affordable solutions.</p>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px;">
+        <a class="btn btn-accent" href="{{ url_for('products') }}">View Products</a>
+        <a class="btn" href="{{ url_for('contact') }}">Contact Us</a>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>Featured Products</h2>
+      <div class="grid">
+        {% for product in products %}
+          <div class="card">
+            <img src="{{ product.image_url }}" alt="{{ product.name }}">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.category }}</p>
+            <p class="price">{{ product.price }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="section-title">
+      <h2>Why riders choose us</h2>
+    </div>
+    <div class="grid cards-3">
+      <div class="card">
+        <h3>Local service</h3>
+        <p>We understand the needs of riders around Isebania and nearby border routes.</p>
+      </div>
+      <div class="card">
+        <h3>Repair support</h3>
+        <p>From quick fixes to full service support, our team keeps your bike moving.</p>
+      </div>
+      <div class="card">
+        <h3>Dependable stock</h3>
+        <p>We keep popular spare parts available and update the catalog as inventory changes.</p>
+      </div>
+    </div>
+  </section>
+{% endblock %}
