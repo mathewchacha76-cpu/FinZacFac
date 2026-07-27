@@ -1,3 +1,18 @@
+# Virtual environment
 .venv/
+
+# Python cache
 __pycache__/
 *.py[cod]
+
+# Test cache
+.pytest_cache/
+
+# Environment files
+.env
+
+# VS Code settings (optional)
+.vscode/
+
+# macOS
+.DS_Store
